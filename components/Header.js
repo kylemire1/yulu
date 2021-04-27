@@ -24,7 +24,6 @@ export default function Header() {
             <HeaderItem title="trending" Icon={LightningBoltIcon} />
           </a>
         </Link>
-        <HeaderItem title="trending" Icon={LightningBoltIcon} />
         <HeaderItem title="verified" Icon={BadgeCheckIcon} />
         <HeaderItem title="collections" Icon={CollectionIcon} />
         <HeaderItem title="search" Icon={SearchIcon} />

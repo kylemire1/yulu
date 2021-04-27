@@ -1,23 +1,42 @@
 import Thumbnail from "./Thumbnail";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const Results = ({ results }) => {
+  const pageKey = Math.floor(Math.random() * 100);
   return (
     <AnimatePresence>
       <AnimateSharedLayout>
-        <motion.div
-          layout
-          key={results[0].id}
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -100 }}
-          transition={{ stiffness: 100 }}
-          className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center"
-        >
-          {results.map((result) => (
-            <Thumbnail key={result.id} result={result} />
-          ))}
-        </motion.div>
+        <div className="px-5 my-10">
+          <motion.div
+            layout
+            key={`pageKey_${pageKey.toString()}`}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ type: "spring", stiffness: 75, delay: 0.2 }}
+            className=" sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center"
+          >
+            {results.map((result) => (
+              <Thumbnail key={result.id} result={result} />
+            ))}
+          </motion.div>
+          <div className="mt-8 ml-4">
+            <a
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Data sourced from <br />
+              <Image
+                alt="The Movie Database"
+                src="/images/tmdb.svg"
+                width={200}
+                height={28}
+              />
+            </a>
+          </div>
+        </div>
       </AnimateSharedLayout>
     </AnimatePresence>
   );
