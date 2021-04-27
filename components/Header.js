@@ -7,13 +7,23 @@ import {
   UserIcon,
 } from "@heroicons/react/outline";
 import Image from "next/image";
+import Link from "next/link";
 import HeaderItem from "./HeaderItem";
 
 export default function Header() {
   return (
     <header className="flex flex-col sm:flex-row justify-between items-center m-5 h-auto">
       <div className="flex flex-grow justify-evenly max-w-2xl">
-        <HeaderItem title="home" Icon={HomeIcon} />
+        <Link href="/">
+          <a>
+            <HeaderItem title="home" Icon={HomeIcon} />
+          </a>
+        </Link>
+        <Link href="/?genre=fetchTrending">
+          <a>
+            <HeaderItem title="trending" Icon={LightningBoltIcon} />
+          </a>
+        </Link>
         <HeaderItem title="trending" Icon={LightningBoltIcon} />
         <HeaderItem title="verified" Icon={BadgeCheckIcon} />
         <HeaderItem title="collections" Icon={CollectionIcon} />
@@ -22,7 +32,7 @@ export default function Header() {
       </div>
       <Image
         className="object-contain"
-        src="https://links.papareact.com/ua6"
+        src="/images/yulu.png"
         width={200}
         height={100}
       />

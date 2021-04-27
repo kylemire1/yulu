@@ -13,6 +13,7 @@ export default function Home({ results }) {
       </Head>
       <Header />
       <Nav />
+
       <Results results={results} />
     </div>
   );
@@ -23,7 +24,7 @@ export async function getServerSideProps(context) {
 
   const request = await fetch(
     `https://api.themoviedb.org/3${
-      requests[genre]?.url || request.fetchTrending.url
+      requests[genre]?.url || requests.fetchTrending.url
     }`
   ).then((res) => res.json());
 
