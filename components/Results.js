@@ -11,10 +11,10 @@ const Results = ({ results }) => {
           <motion.div
             layout
             key={`pageKey_${pageKey.toString()}`}
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            transition={{ type: "spring", stiffness: 75, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.2 }}
             className=" sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:flex flex-wrap justify-center"
           >
             {results.map((result) => (
